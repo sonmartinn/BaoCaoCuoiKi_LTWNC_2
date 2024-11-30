@@ -1,0 +1,105 @@
+D:\Project\Web\ShopProject\ShopProject\bin\ShopProject.dll.config
+D:\Project\Web\ShopProject\ShopProject\bin\ShopProject.dll
+D:\Project\Web\ShopProject\ShopProject\bin\ShopProject.pdb
+D:\Project\Web\ShopProject\ShopProject\bin\EntityFramework.dll
+D:\Project\Web\ShopProject\ShopProject\bin\EntityFramework.SqlServer.dll
+D:\Project\Web\ShopProject\ShopProject\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\Web\ShopProject\ShopProject\bin\Newtonsoft.Json.dll
+D:\Project\Web\ShopProject\ShopProject\bin\PagedList.Mvc.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Net.Http.Formatting.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Helpers.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Http.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Http.WebHost.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Mvc.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Razor.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.dll
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.dll
+D:\Project\Web\ShopProject\ShopProject\bin\X.PagedList.Mvc.PagedListExt.dll
+D:\Project\Web\ShopProject\ShopProject\bin\EntityFramework.xml
+D:\Project\Web\ShopProject\ShopProject\bin\EntityFramework.SqlServer.xml
+D:\Project\Web\ShopProject\ShopProject\bin\Newtonsoft.Json.xml
+D:\Project\Web\ShopProject\ShopProject\bin\PagedList.Mvc.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Net.Http.Formatting.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Helpers.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Http.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Http.WebHost.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Mvc.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.Razor.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.xml
+D:\Project\Web\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.xml
+D:\Project\Web\ShopProject\ShopProject\obj\Debug\ShopProject.dll
+D:\Project\Web\ShopProject\ShopProject\obj\Debug\ShopProject.pdb
+D:\Project\Web\ShopProject\ShopProject\obj\Debug\ShopProject.csprojResolveAssemblyReference.cache
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\ShopProject.dll.config
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\ShopProject.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\ShopProject.pdb
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\EntityFramework.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\EntityFramework.SqlServer.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\Newtonsoft.Json.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\PagedList.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\PagedList.Mvc.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Net.Http.Formatting.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Helpers.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Http.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Http.WebHost.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Mvc.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Razor.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\EntityFramework.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\EntityFramework.SqlServer.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\Newtonsoft.Json.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\PagedList.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\PagedList.Mvc.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Net.Http.Formatting.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Helpers.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Http.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Http.WebHost.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Mvc.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.Razor.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.xml
+D:\Project\Web\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.dll
+D:\Project\Web\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.pdb
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\ShopProject.dll.config
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\ShopProject.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\ShopProject.pdb
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\EntityFramework.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\EntityFramework.SqlServer.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\Microsoft.Web.Infrastructure.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\Newtonsoft.Json.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\PagedList.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\PagedList.Mvc.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Net.Http.Formatting.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Helpers.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Http.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Http.WebHost.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Mvc.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Razor.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\EntityFramework.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\EntityFramework.SqlServer.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\Newtonsoft.Json.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\PagedList.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\PagedList.Mvc.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Net.Http.Formatting.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Helpers.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Http.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Http.WebHost.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Mvc.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.Razor.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Deployment.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\bin\System.Web.WebPages.Razor.xml
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.csproj.AssemblyReference.cache
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.csproj.CoreCompileInputs.cache
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\obj\Debug\ShopProj.6879BB14.Up2Date
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.dll
+D:\Vo Chep Bai\LT web nang cao\Shopper\ShopProject\ShopProject\obj\Debug\ShopProject.pdb

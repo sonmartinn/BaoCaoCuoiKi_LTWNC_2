@@ -1,0 +1,77 @@
+﻿@model ShopProject.Areas.Administrator.Models.Order
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+}
+<h2>Chi tiết đơn hàng: @Model.orderID</h2>
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "Order")
+</div>
+<div>
+    <h4>Thông tin khách hàng</h4>
+    <p>
+        <strong>Tên:</strong> @Model.Customer.cusFullName<br />
+        <strong>Số điện thoại:</strong> @Model.Customer.cusPhone<br />
+        <strong>Email:</strong> @Model.Customer.cusEmail<br />
+        <strong>Địa chỉ:</strong> @Model.Customer.cusAddress<br />
+    </p>
+</div>
+
+<div>
+    <h4>Danh sách sản phẩm</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@detail.Product.proName</td>
+                    <td>@detail.ordtsQuantity</td>
+                    <td>@proDAO.formatNumber(detail.ordtsThanhTien)</td>
+                </tr>
+            }
+        <tr>
+            <td class="text-right text-info"><strong>Tổng</strong></td>
+            @{
+                var quantity = 0;
+                foreach (var detail in Model.OrderDetails)
+                {
+                    quantity += (Int32)detail.ordtsQuantity;
+                }
+            }
+            <td class="text-danger">@quantity</td>
+            @{
+                var total_amount = 0;
+                foreach (var detail in Model.OrderDetails)
+                {
+                    total_amount += Int32.Parse(detail.ordtsThanhTien);
+                }
+            }
+            <td class="text-danger">@proDAO.formatNumber(total_amount.ToString())</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Cập nhật trạng thái</h4>
+    <form action="@Url.Action("UpdateStatus", "Order", new { id = Model.orderID })" method="post">
+        <select name="status" class="form-control">
+            <option value="Đang xử lý..." @(Model.orderStatus == "Đang xử lý" ? "selected" : "")>Đang xử lý</option>
+            <option value="Hoàn thành" @(Model.orderStatus == "Hoàn thành" ? "selected" : "")>Hoàn thành</option>
+            <option value="Hủy" @(Model.orderStatus == "Hủy" ? "selected" : "")>Hủy</option>
+        </select>
+        <br />
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+    </form>
+</div>
+

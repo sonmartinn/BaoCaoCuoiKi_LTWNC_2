@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ShopProject.Areas.Administrator.Models.Order>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+}
+
+<h2>Quản lý đơn đặt hàng</h2>
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Index", "Order")" role="button"><i class=" fa fa-regular fa-arrows-rotate"></i> Làm mới</a>
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "Order", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+                    <input type="search" name="id" class="form-control" style="width:300px" placeholder="Nhập mã số hóa đơn..." />
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Tên khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Trạng Thái</th>
+                            <th>Tổng số lượng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => order.orderID)</td>
+                                <td>@Html.DisplayFor(modelItem => order.Customer.cusFullName)</td>
+                                <td>@Html.DisplayFor(modelItem => order.orderDateTime)</td>
+                                <td>@Html.DisplayFor(modelItem => order.orderStatus)</td>
+                                @{
+                                    var quantity = 0;
+                                    foreach (var detail in order.OrderDetails)
+                                    {
+                                        quantity += (Int32)detail.ordtsQuantity;
+                                    }
+                                }
+                                <td>@quantity</td>
+                                @{
+                                    var total_amount = 0;
+                                    foreach (var detail in order.OrderDetails)
+                                    {
+                                        total_amount += Int32.Parse(detail.ordtsThanhTien);
+                                    }
+                                }
+                                <td>@proDAO.formatNumber(total_amount.ToString())</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Order", new { id = order.orderID })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a href="@Url.Action("Details", "Order", new { id = order.orderID })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá đơn hàng này?')" href="@Url.Action("Delete", "Order", new { id = order.orderID })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

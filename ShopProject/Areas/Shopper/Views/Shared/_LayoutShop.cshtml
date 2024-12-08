@@ -12,7 +12,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="~/Areas/Shopper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- MetisMenu CSS -->
     <link href="~/Areas/Shopper/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
@@ -53,48 +53,37 @@
     <link rel="stylesheet" href="~/Areas/Shopper/Content/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
     <!---//End-rate---->
     <style>
-        #style-6::-webkit-scrollbar-track
-            {
-	            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	            background-color: #F5F5F5;
-            }
+        #style-6::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
 
-            #style-6::-webkit-scrollbar
-            {
-	            width: 10px;
-	            background-color: #F5F5F5;
-            }
+        #style-6::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
 
-            #style-6::-webkit-scrollbar-thumb
-            {
-	            background-color: #F90;	
-	            background-image: -webkit-linear-gradient(45deg,
-	                                                      rgba(255, 255, 255, .2) 25%,
-											              transparent 25%,
-											              transparent 50%,
-											              rgba(255, 255, 255, .2) 50%,
-											              rgba(255, 255, 255, .2) 75%,
-											              transparent 75%,
-											              transparent)
-            }
+        #style-6::-webkit-scrollbar-thumb {
+            background-color: #F90;
+            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
+        }
     </style>
 </head>
 <body id="style-6">
     <div class="header">
         <div class="container">
             <div class="logo">
-                <h1><a href="@Url.Action("Index", "Home")"><b>T<br>H<br>E</b>Shopper<span>The Best Fashion</span></a></h1>
+                <h1 class="custom-heading"><a href="@Url.Action("Index", "Home")"><b>T<br>H<br>E</b>HOT'S<span>The Best Fashion</span></a></h1>
+                <img src="~/Image/logo3.png" alt="Logo" class="logo-image">
             </div>
             <div class="head-t">
                 <ul class="card">
-                    <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i>Đăng nhập</a></li>
-                    <li><a href="register.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đăng ký</a></li>
+                    <li class="welcome-text">Chào mừng! Hãy tận hưởng trải nghiệm mua sắm thú vị cùng chúng tôi.</li>
+
                 </ul>
             </div>
             <div class="header-ri">
                 <ul class="social-top">
-                    <li><a href="http://facebook.com/tung.tim.96" target="_blank" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-                    <li><a href="#" class="icon pinterest"><i class="fa fa-youtube-play" aria-hidden="true"></i><span></span></a></li>
                 </ul>
             </div>
             <div class="nav-top">
@@ -164,7 +153,7 @@
                         {
                             <a href="@Url.Action("Index","GioHang")"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge">@gio.Count</span></span></a>
                         }
-}
+                    }
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -192,37 +181,39 @@
                 </ul>
             </div>
             <div class="col-md-3 footer-grid">
-                <h3>Tài khoản</h3>
+                <h3>Liên hệ</h3>
                 <ul>
-                    <li><a href="login.html">Đăng nhập</a></li>
-                    <li><a href="register.html">Đăng ký</a></li>
+                    <li>Lê Thị Oanh</li>
+                    <li>Lê Trung Sơn</li>
+                    <li>Nguyễn Thị Huệ</li>
+                    <li>Lê Thị Huyền Trang</li>
                 </ul>
             </div>
             <div class="clearfix"></div>
             <div class="footer-bottom">
-                <h2><a href="index.html"><b>T<br>H<br>E</b>Shopper<span>The Best Fashion</span></a></h2>
+                <h2><a href="index.html"><b>T<br>H<br>E</b>HOT'S<span>The Best Fashion</span></a></h2>
                 <ul class="social-fo">
-                    <li><a href="http://facebook.com/tung.tim.96" target="_blank" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100037759958413" target="_blank" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                     <li><a href="#" class=" pin"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
                     <li><a href="#" class=" dri"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
                 </ul>
                 <div class=" address">
                     <div class="col-md-4 fo-grid1">
-                        <p><i class="fa fa-home" aria-hidden="true"></i>80/10 Dĩ an, Bình Dương.</p>
+                        <p><i class="fa fa-home" aria-hidden="true"></i>48 Cao Thắng - Hải Châu - Đà Nẵng</p>
                     </div>
                     <div class="col-md-4 fo-grid1">
-                        <p><i class="fa fa-phone" aria-hidden="true"></i>01212692802</p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i>0877022760</p>
                     </div>
                     <div class="col-md-4 fo-grid1">
-                        <p><a href="mailto:tungtim96@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>tungtim96@gmail.com</a></p>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>lethihtrang998877@gmail.com</a></p>
                     </div>
                     <div class="clearfix"></div>
 
                 </div>
             </div>
             <div class="copy-right">
-                <p> &copy; 2017 Shopper. All Rights Reserved | Design by  <a target="_blank" href="http://facebook.com/tung.tim.96"> Vũ Tùng</a></p>
+                <p> &copy; 2024 HOT'S  | Design by  <a target="_blank"> Nhóm 8</a></p>
             </div>
         </div>
     </div>
@@ -235,7 +226,7 @@
                 containerID: 'toTop', // fading element id
                 containerHoverID: 'toTopHover', // fading element hover id
                 scrollSpeed: 1200,
-                easingType: 'linear'
+easingType: 'linear'
             };
             */
             $().UItoTop({ easingType: 'easeOutQuart' });

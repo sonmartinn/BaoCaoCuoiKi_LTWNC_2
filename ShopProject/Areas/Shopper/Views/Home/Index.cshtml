@@ -11,7 +11,7 @@
         background-repeat: no-repeat; background-position: 50% 50%; background-image: none;">
         <video autoplay="autoplay" loop="loop" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%);
              visibility: visible; width: 1024px; height: auto;">
-            <source src="~/video/video.mp4" type="video/mp4">
+            <source src="~/video/quangcao.mp4" type="video/mp4">
             <source src="~/video/video.gif" type="image/gif" />
         </video>
     </div>
@@ -136,7 +136,7 @@
         </div>
         <!--image khuyến mãi-->
         <div>
-            <img src="~/Image/khuyen-mai.jpg" class="center-block" />
+            <img src="~/Image/sukien1.jpg" class="center-block" />
         </div>
         <!--End Image khuyến mãi-->
         <div class="spec " style="margin-top:30px;">
@@ -230,7 +230,7 @@
                     <h4>Phương thức thanh toán &amp; giao hàng</h4>
                     <div class="content">
                         <div class="toasang">
-                            <img src="~/Image/icon_shipping.png"/>
+                            <img src="~/Image/icon_shipping.png" />
                         </div>
                         <p><strong class="bold">Miễn phí vận chuyển cho đơn hàng trên 1.000.000VNĐ</strong></p>
                         <ul style="font-size:large;">
@@ -300,6 +300,7 @@
         opacity: 0.9; /*initial opacity of images*/
         margin: 0 10px 5px 0; /*margin between images*/
     }
+
         .hoverSlideHome img:hover {
             -webkit-transform: scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
             -moz-transform: scale(1.1); /*Mozilla scale version*/
@@ -309,93 +310,58 @@
             -moz-box-shadow: 0px 0px 30px gray; /*Mozilla shadow version*/
             opacity: 1;
         }
+
     .toasang {
-
         margin: 20px;
-
         position: relative;
-
         display: block;
-
-        width: 80px; height: 80px;
-
+        width: 80px;
+        height: 80px;
         text-align: center;
-
         border-radius: 100%;
-
         font: 700 30px/80px 'arial';
-
         text-decoration: none;
-
         color: #313131;
-
         z-index: 1;
-
         -webkit-transition: all .3s ease;
-
         -moz-transition: all .3s ease;
-
         -ms-transition: all .3s ease;
-
         -o-transition: all .3s ease;
-
         transition: all .3s ease;
-
     }
 
-    .toasang:after {
+        .toasang:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 100%;
+            background: #dfdfdf;
+            z-index: -1;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            -ms-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+        }
 
-        content: '';
+        .toasang:hover {
+            color: #fff;
+            background: #399;
+        }
 
-        display: block;
-
-        position: absolute;
-
-        width: 100%; height: 100%;
-
-        margin: auto;
-
-        top: 0; right: 0; bottom: 0; left: 0;
-
-        border-radius: 100%;
-
-        background: #dfdfdf;
-
-        z-index: -1;
-
-        -webkit-transition: all .3s ease;
-
-        -moz-transition: all .3s ease;
-
-        -ms-transition: all .3s ease;
-
-        -o-transition: all .3s ease;
-
-        transition: all .3s ease;
-
-    }
-
-    .toasang:hover {
-
-        color: #fff;
-
-        background: #399;
-
-    }
-
-    .toasang:hover:after {
-
-        background: transparent;
-
-        -webkit-transform: scale(1.6);
-
-        -moz-transform: scale(1.6);
-
-        -ms-transform: scale(1.6);
-
-        -o-transform: scale(1.6);
-
-        transform: scale(1.6);
-
-    }
+            .toasang:hover:after {
+                background: transparent;
+                -webkit-transform: scale(1.6);
+                -moz-transform: scale(1.6);
+                -ms-transform: scale(1.6);
+                -o-transform: scale(1.6);
+                transform: scale(1.6);
+            }
 </style>

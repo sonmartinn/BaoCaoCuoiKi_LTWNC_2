@@ -1,0 +1,153 @@
+﻿@model ShopProject.Areas.Administrator.Models.Order
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+}
+
+<h2>Chỉnh sửa Đơn Hàng</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="orderID">Mã Đơn Hàng</label>
+        @Html.TextBoxFor(model => model.orderID, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        <label for="cusPhone">Số Điện Thoại Khách Hàng</label>
+        @Html.TextBoxFor(model => model.cusPhone, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        <label for="orderMessage">Ghi Chú</label>
+        @Html.TextAreaFor(model => model.orderMessage, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <div class="form-group">
+        <label for="orderDateTime">Ngày Đặt Hàng</label>
+        @Html.TextBoxFor(model => model.orderDateTime, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="orderStatus">Trạng Thái</label>
+        <select name="orderStatus" class="form-control">
+            <option value="Đang xử lý..." @(Model.orderStatus == "Đang xử lý" ? "selected" : "")>Đang xử lý</option>
+            <option value="Hoàn thành" @(Model.orderStatus == "Hoàn thành" ? "selected" : "")>Hoàn thành</option>
+            <option value="Hủy" @(Model.orderStatus == "Hủy" ? "selected" : "")>Hủy</option>
+        </select>
+    </div>
+
+    <h3>Sản phẩm trong đơn hàng</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sản Phẩm</th>
+                <th>Số Lượng</th>
+                <th>Thành Tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="product-list">
+            @foreach (var detail in Model.OrderDetails)
+            {
+                <tr>
+                    <td>
+                        <select name="ProductId" class="form-control product-select">
+                            @foreach (var product in ViewBag.Products)
+                            {
+                                <option value="@product.proID" data-price="@product.proPrice" @(product.proID == detail.proID ? "selected" : "")>
+                                    @product.proName
+                                </option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" name="Quantity" class="form-control quantity" value="@detail.ordtsQuantity" />
+                    </td>
+                    <td class="total-price">@proDAO.formatNumber((detail.ordtsQuantity * Int32.Parse(detail.Product.proPrice)).ToString())</td>
+                    <td><button type="button" class="btn btn-danger btn-sm remove-product">Xóa</button></td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <button type="button" id="add-product" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Thêm Sản Phẩm</button>
+        </div>
+        <div class="col-md-9 text-end">
+            <button type="submit" class="btn btn-success">Lưu</button>
+            <a href="@Url.Action("Index", "Order")" class="btn btn-default b-right">Hủy</a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Thêm sản phẩm mới
+            $("#add-product").click(function () {
+                var firstProduct = $("#product-list select.product-select option:first");
+                var price = parseFloat(firstProduct.data("price")) || 0;
+                var quantity = 1;
+                var total = quantity * price;
+
+                var newRow = `<tr>
+                    <td>
+                        <select name="ProductId" class="form-control product-select">
+                            @foreach (var product in ViewBag.Products)
+                            {
+                                <option value="@product.proID" data-price="@product.proPrice">@product.proName</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" name="Quantity" class="form-control quantity" value="1" />
+                    </td>
+                    <td class="total-price">${total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                    <td><button type="button" class="btn btn-danger btn-sm remove-product">Xóa</button></td>
+                </tr>`;
+                $("#product-list").append(newRow);
+            });
+
+            // Xóa sản phẩm
+            $(document).on("click", ".remove-product", function () {
+                $(this).closest("tr").remove();
+            });
+
+            // Tính lại thành tiền khi thay đổi số lượng
+            $(document).on("input", ".quantity", function () {
+                var quantity = parseFloat($(this).val()) || 0;
+                var price = parseFloat($(this).closest("tr").find(".product-select option:selected").data("price")) || 0;
+                var total = quantity * price;
+                $(this).closest("tr").find(".total-price").text(total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+            });
+
+            // Tính lại thành tiền khi thay đổi sản phẩm
+            $(document).on("change", ".product-select", function () {
+                var quantity = parseFloat($(this).closest("tr").find(".quantity").val()) || 0;
+                var price = parseFloat($(this).find("option:selected").data("price")) || 0;
+                var total = quantity * price;
+                $(this).closest("tr").find(".total-price").text(total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+            });
+
+            // Cập nhật giá trị mặc định khi load trang
+            $(".quantity").trigger("input");
+        });
+
+    </script>
+}
+
+

@@ -1,12 +1,13 @@
 # Ignore Visual Studio-related files and folders
 .vs/
+ShopProject/.vs
 *.user
 *.suo
 *.log
 
 # Ignore build directories
-bin/
-obj/
+ShopProject/bin/
+ShopProject/obj/
 
 # Ignore temporary files
 *.tmp

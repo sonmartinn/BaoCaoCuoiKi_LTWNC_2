@@ -1,7 +1,7 @@
 # Ignore Visual Studio-related files and folders
 .vs/
 ShopProject/.vs
-*.user
+ShopProject/*.user
 *.suo
 *.log
 

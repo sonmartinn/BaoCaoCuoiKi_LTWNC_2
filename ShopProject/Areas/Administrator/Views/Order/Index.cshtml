@@ -50,10 +50,30 @@
                         @foreach (var order in Model)
                         {
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => order.orderID)</td>
+                                <td><a href="@Url.Action("Details", "Order", new { id = order.orderID })">@Html.DisplayFor(modelItem => order.orderID)</a></td>
                                 <td>@Html.DisplayFor(modelItem => order.Customer.cusFullName)</td>
                                 <td>@Html.DisplayFor(modelItem => order.orderDateTime)</td>
-                                <td>@Html.DisplayFor(modelItem => order.orderStatus)</td>
+                                <td>
+                                    @{
+                                        string colorClass = "";
+                                        switch (order.orderStatus)
+                                        {
+                                            case "Đang xử lý...":
+                                                colorClass = "text-warning"; // Vàng
+                                                break;
+                                            case "Hoàn thành":
+                                                colorClass = "text-success"; // Xanh
+                                                break;
+                                            case "Hủy":
+                                                colorClass = "text-danger"; // Đỏ
+                                                break;
+                                            default:
+                                                colorClass = ""; // Mặc định
+                                                break;
+                                        }
+                                    }
+                                    <strong><span class="@colorClass">@Html.DisplayFor(modelItem => order.orderStatus)</span></strong>
+                                </td>
                                 @{
                                     var quantity = 0;
                                     foreach (var detail in order.OrderDetails)

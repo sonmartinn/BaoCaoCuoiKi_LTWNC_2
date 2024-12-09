@@ -59,11 +59,17 @@ namespace ShopProject.Areas.Shopper.Controllers
             var existingOrderIds = db.Orders.Select(o => o.orderID).ToList();
 
             // Tạo ID mới và đảm bảo không trùng
-            int baseId = Int32.Parse(db.Orders
-                .ToList()
-                .OrderByDescending(p => DateTime.Parse(p.orderDateTime))
-                .FirstOrDefault()
-                .orderID.Replace("HD", ""));
+            var lastOrder = db.Orders
+    .ToList()
+    .OrderByDescending(p => DateTime.Parse(p.orderDateTime))
+    .FirstOrDefault();
+
+            int baseId = 0;
+
+            if (lastOrder != null)
+            {
+                baseId = Int32.Parse(lastOrder.orderID.Replace("HD", ""));
+            }
 
             string newIDOrder = (baseId + 1).ToString();
             string generatedId = "HD" + newIDOrder;

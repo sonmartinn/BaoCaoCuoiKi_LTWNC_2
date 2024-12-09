@@ -443,6 +443,8 @@
     <Content Include="Areas\Administrator\Views\Order\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Order\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Shared\_Notification.cshtml" />
+    <Content Include="Areas\Shopper\Views\LoGin\Login.cshtml" />
+    <Content Include="Areas\Shopper\Views\LoGin\Register.cshtml" />
     <None Include="Properties\PublishProfiles\ShopperMVC.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Image\arr.png" />
@@ -520,8 +522,10 @@
     <Compile Include="Areas\Administrator\Models\Rate.cs" />
     <Compile Include="Areas\Shopper\Controllers\GioHangController.cs" />
     <Compile Include="Areas\Shopper\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Shopper\Controllers\LoGinController.cs" />
     <Compile Include="Areas\Shopper\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Shopper\Controllers\ThanhToanController.cs" />
+    <Compile Include="Areas\Shopper\Models\Account.cs" />
     <Compile Include="Areas\Shopper\Models\CartItem.cs" />
     <Compile Include="Areas\Shopper\Models\Category.cs" />
     <Compile Include="Areas\Shopper\Models\Comment.cs" />

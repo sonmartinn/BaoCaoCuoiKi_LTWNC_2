@@ -14,11 +14,11 @@ namespace ShopProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "ShopProject.Controllers" }
-            ).DataTokens["area"] = "Shopper";
+    name: "Default",
+    url: "{controller}/{action}/{id}",
+    defaults: new { controller = "LoGin", action = "Index", id = UrlParameter.Optional },
+    namespaces: new string[] { "ShopProject.Controllers" }
+).DataTokens["area"] = "Shopper";
         }
     }
 }

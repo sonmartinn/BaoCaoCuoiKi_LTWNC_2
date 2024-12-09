@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Areas/Shopper/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="container">
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="spec ">
+            <h3>Danh sách đơn hàng</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <p class="text-info text-center" style="font-size:25px;">
+            Bạn chưa có đơn hàng nào!
+        </p>
+    }
+    else
+    {
+        <div class="spec ">
+            <h3>Danh sách đơn hàng</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mã Đơn Hàng</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Ngày Đặt</th>
+                    <th>Trạng Thái</th>
+                    <th>Ghi Chú</th>
+                    <th>Chi Tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.OrderID</td>
+                        <td>@order.CustomerPhone</td>
+                        <td>@order.OrderDate</td>
+                        <td>@order.Status</td>
+                        <td>@order.Message</td>
+                        <td>
+                            <button class="link-detail" data-toggle="collapse" data-target="#details-@order.OrderID">
+                                Xem Chi Tiết
+                            </button>
+                        </td>
+                    </tr>
+                    <tr id="details-@order.OrderID" class="collapse">
+                        <td colspan="6">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Mã Sản Phẩm</th>
+                                        <th>Tên Sản Phẩm</th>
+                                        <th>Số Lượng</th>
+                                        <th>Thành Tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var detail in order.OrderDetails)
+                                    {
+                                        <tr>
+                                            <td>@detail.ProductID</td>
+                                            <td>@detail.ProductName</td>
+                                            <td>@detail.Quantity</td>
+                                            <td>@detail.TotalPrice</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<style>
+    .link-detail {
+        text-decoration: underline;
+        color: #007bff;
+        cursor: pointer;
+        font-weight: bold;
+        border: none;
+        background: none;
+        padding: 0;
+    }
+
+        .link-detail:hover {
+            color: #ff0000;
+            text-decoration: none;
+        }
+</style>

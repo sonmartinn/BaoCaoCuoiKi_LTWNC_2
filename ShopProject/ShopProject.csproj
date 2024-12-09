@@ -445,6 +445,7 @@
     <Content Include="Areas\Administrator\Views\Shared\_Notification.cshtml" />
     <Content Include="Areas\Shopper\Views\LoGin\Login.cshtml" />
     <Content Include="Areas\Shopper\Views\LoGin\Register.cshtml" />
+    <Content Include="Areas\Shopper\Views\ThanhToan\DonHang.cshtml" />
     <None Include="Properties\PublishProfiles\ShopperMVC.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Image\arr.png" />
@@ -540,6 +541,8 @@
     <Compile Include="Areas\Shopper\Models\Customer.cs" />
     <Compile Include="Areas\Shopper\Models\Order.cs" />
     <Compile Include="Areas\Shopper\Models\OrderDetail.cs" />
+    <Compile Include="Areas\Shopper\Models\OrderDetailViewModel.cs" />
+    <Compile Include="Areas\Shopper\Models\OrderViewModel.cs" />
     <Compile Include="Areas\Shopper\Models\Producer.cs" />
     <Compile Include="Areas\Shopper\Models\Product.cs" />
     <Compile Include="Areas\Shopper\Models\ProductType.cs" />

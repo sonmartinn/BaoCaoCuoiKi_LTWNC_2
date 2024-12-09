@@ -109,5 +109,28 @@ namespace ShopProject.Areas.Shopper.Controllers
         {
             return View();
         }
+        public ActionResult DonHang()
+        {
+            var orders = db.Orders
+                .Include("OrderDetails")
+                .Include("OrderDetails.Product") // Bao gồm cả sản phẩm
+                .Select(order => new OrderViewModel
+                {
+                    OrderID = order.orderID,
+                    CustomerPhone = order.cusPhone,
+                    OrderDate = order.orderDateTime,
+                    Status = order.orderStatus,
+                    Message = order.orderMessage,
+                    OrderDetails = order.OrderDetails.Select(detail => new OrderDetailViewModel
+                    {
+                        ProductID = detail.proID,
+                        Quantity = detail.ordtsQuantity,
+                        TotalPrice = detail.ordtsThanhTien,
+                        ProductName = detail.Product.proName,
+                    }).ToList()
+                }).ToList();
+
+            return View(orders);
+        }
     }
 }

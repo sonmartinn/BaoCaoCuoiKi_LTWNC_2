@@ -224,65 +224,141 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div>
-                <div class="col-sm-4">
-                    <h4>Phương thức thanh toán &amp; giao hàng</h4>
-                    <div class="content">
-                        <div class="toasang">
-                            <img src="~/Image/icon_shipping.png" />
-                        </div>
-                        <p><strong class="bold">Miễn phí vận chuyển cho đơn hàng trên 1.000.000VNĐ</strong></p>
-                        <ul style="font-size:large;">
-                            <li class="fa fa-check-circle">
-                                <a href="#" title="">
-                                    Giao hàng và thu tiền tận nơi
-                                </a>
-                            </li>
-                            <li class="fa fa-check-circle">
-                                <a href="#" title="">Chuyển khoản và giao hàng</a>
-                            </li>
-                            <li class="fa fa-check-circle">
-                                <a href="#" title="">Mua hàng tại shop</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <h4>Hỗ trợ 24/7</h4>
-                    <div class="content">
-                        <div class="toasang">
-                            <img src="~/Image/icon_support.png" />
-                        </div>
-                        <p><strong>Gọi ngay cho chúng tôi khi bạn có thắc mắc</strong></p>
-                        <ul style="font-size:xx-large;">
-                            <li class="fa fa-check-circle">
-                                <strong class="big npl">01212692802 </strong>
-                            </li>
-                            <li class="fa fa-check-circle">
-                                <strong class="big npl">01212692802 </strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <h4>Thẻ thành viên</h4>
-                    <div class="content">
-                        <div class="toasang">
-                            <img src="~/Image/icon_card.png" />
-                        </div>
-                        <p><strong class="bold">Chế độ ưu đãi thành viên VIP:</strong></p>
-                        <ul style="font-size:large;">
-                            <li class="fa fa-check-circle">5% cho thành viên Bạc</li>
-                            <li class="fa fa-check-circle">10% cho thành viên Vàng</li>
-                            <li class="fa fa-check-circle">15% cho thành viên Kim cương</li>
-                        </ul>
-                    </div>
-                </div>
+        
+</div>
+
+
+<div class="container">
+    <div class="head">
+        <h1 style="color: red;">ĐỂ LẠI BÌNH LUẬN VỀ TRẢI NGHIỆM CỦA BẠN ĐỂ CHÚNG TÔI CÓ THỂ HOÀN THIỆN HƠN.</h1>
+    </div>
+    <div><span id="comment">0</span> bình luận</div>
+    <div class="text">
+        <p>Cảm ơn bạn đã góp ý.</p>
+    </div>
+    <div class="comments"></div>
+    <div class="commentbox">
+        <img src="~/Image/user.png" alt="">
+        <div class="content">
+            <h2>Bình luận bởi :</h2>
+            <input type="text" value="Oanh" class="user">
+            <textarea class="usercomment" placeholder="Write your comment here..."></textarea>
+            <div class="buttons">
+                <button type="submit" disabled id="publish">Đăng</button>
+
             </div>
         </div>
     </div>
+
 </div>
+
+<script>
+   "use strict";
+const userId = {
+    name: null,
+    identity: null,
+    image: null,
+    message: null,
+    date: null
+};
+const userComment = document.querySelector(".usercomment");
+const publishBtn = document.querySelector("#publish");
+const comments = document.querySelector(".comments");
+const userName = document.querySelector(".user");
+
+// Enable/disable the publish button based on input
+userComment.addEventListener("input", e => {
+    if (userComment.value) {
+        publishBtn.disabled = false;
+        publishBtn.classList.add("active");
+    } else {
+        publishBtn.disabled = true;
+        publishBtn.classList.remove("active");
+    }
+});
+
+// Function to add comment
+function addPost() {
+    if (!userComment.value) return;
+
+    userId.name = userName.value;
+    userId.image = userId.name === "Anonymous" ? "/Image/usermini.png" : "/Image/user.png";
+    userId.message = userComment.value;
+    userId.date = new Date().toLocaleString();
+
+    // Create the HTML for the new comment
+    const published = `
+        <div class="parents">
+            <img src="${userId.image}" alt="User Image">
+            <div>
+                <h1>${userId.name}</h1>
+                <p>${userId.message}</p>
+                <div class="engagements">
+                   <img src="/Image/like.png" alt="Like">
+                   <img src="/Image/share.png" alt="Share">
+                </div>
+                <span class="date">${userId.date}</span>
+            </div>
+        </div>`;
+
+    // Add the new comment to the DOM
+    comments.innerHTML += published;
+
+    // Save the new comment to localStorage
+    saveCommentToLocalStorage(userId);
+
+    // Clear the input field
+    userComment.value = "";
+    userComment.dispatchEvent(new Event('input')); // Trigger input event to update button state
+
+    // Update the comment count
+    const commentsNum = document.querySelectorAll(".parents").length;
+    document.getElementById("comment").textContent = commentsNum;
+}
+
+// Function to save comment to localStorage
+function saveCommentToLocalStorage(comment) {
+    let commentsData = JSON.parse(localStorage.getItem("comments")) || [];
+    commentsData.push(comment);
+    localStorage.setItem("comments", JSON.stringify(commentsData));
+}
+
+// Load comments from localStorage when the page loads
+function loadCommentsFromLocalStorage() {
+    const commentsData = JSON.parse(localStorage.getItem("comments")) || [];
+    commentsData.forEach(comment => {
+        const published = `
+            <div class="parents">
+                <img src="${comment.image}" alt="User Image">
+                <div>
+                    <h1>${comment.name}</h1>
+                    <p>${comment.message}</p>
+                    <div class="engagements">
+                       <img src="/Image/like.png" alt="Like">
+                       <img src="/Image/share.png" alt="Share">
+                    </div>
+                    <span class="date">${comment.date}</span>
+                </div>
+            </div>`;
+        comments.innerHTML += published;
+    });
+
+    // Update the comment count
+    const commentsNum = commentsData.length;
+    document.getElementById("comment").textContent = commentsNum;
+}
+
+// Event listener to publish comment
+publishBtn.addEventListener("click", addPost);
+
+// Load comments when the page loads
+window.onload = function() {
+    loadCommentsFromLocalStorage();
+};
+
+</script>
+
+
 
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger intent="WELCOME"
@@ -370,4 +446,121 @@
                 -o-transform: scale(1.6);
                 transform: scale(1.6);
             }
+
+    .commentbox {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+        .commentbox > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+    .content {
+        width: 100%;
+    }
+
+    .user {
+        border: none;
+        outline: none;
+        margin: 5px 0;
+        color: #808080;
+        margin-left: 20px;
+        padding: 10px;
+    }
+
+    .usercomment {
+        border: none;
+        padding: 10px;
+        outline: none;
+        border-bottom: 2px solid blue;
+        margin-bottom: 10px;
+        width: 95%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #808080;
+    }
+
+        .buttons button {
+            padding: 5px 10px;
+            background: lightgrey;
+            color: #808080;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+            .buttons button.active {
+                background: blue;
+                color: #fff;
+            }
+
+    .policy {
+        margin: 20px 0;
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        color: #808080;
+    }
+
+        .policy a {
+            text-decoration: none;
+            color: blue;
+        }
+
+    .parents {
+        font-family: Arial, sans-serif;
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+        .parents h1 {
+            font-size: 14px;
+        }
+
+        .parents p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .parents > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+    .engagements {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .engagements img {
+            width: 20px;
+        }
+
+            .engagements img:nth-child(1) {
+                margin-right: 10px;
+                width: 25px;
+            }
+
+    .date {
+        color: #808080;
+        font-size: 12px;
+    }
 </style>

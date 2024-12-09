@@ -48,9 +48,14 @@
                         <td>@order.Status</td>
                         <td>@order.Message</td>
                         <td>
-                            <button class="link-detail" data-toggle="collapse" data-target="#details-@order.OrderID">
-                                Xem Chi Tiết
-                            </button>
+                            <div class="action-buttons">
+                                <button class="link-detail" data-toggle="collapse" data-target="#details-@order.OrderID">
+                                    Xem Chi Tiết
+                                </button>
+                                <button class="link-detail" onclick="confirmCancelOrder('@order.OrderID')">
+                                    Hủy hàng
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <tr id="details-@order.OrderID" class="collapse">
@@ -76,14 +81,57 @@
                                     }
                                 </tbody>
                             </table>
-
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
+        <div id="confirmModal" class="modal-overlay">
+            <div class="modal-content">
+                <p>Bạn có chắc chắn muốn hủy đơn hàng này không?</p>
+                <button id="confirmYes" class="btn-confirm">Xác nhận</button>
+                <button id="confirmNo" class="btn-cancel">Hủy</button>
+            </div>
+        </div>
     }
 </div>
+
+<script>
+    let currentOrderId = null;
+    function confirmCancelOrder(orderId) {
+        currentOrderId = orderId;
+        document.getElementById("confirmModal").style.display = "flex";
+    }
+    document.getElementById("confirmYes").addEventListener("click", function () {
+        if (currentOrderId) {
+        
+            $.ajax({
+                url: '/ThanhToan/DeleteOrder',
+                type: 'POST',
+                data: { id: currentOrderId },
+                success: function (response) {
+                    if (response.success) {
+                        alert("Đơn hàng đã được hủy thành công!");
+                        location.reload(); 
+                    } else {
+                        alert("Có lỗi xảy ra: " + response.message);
+                    }
+                },
+                error: function () {
+                    alert("Không thể hủy đơn hàng. Vui lòng thử lại sau.");
+                }
+            });
+        }
+        document.getElementById("confirmModal").style.display = "none";
+    });
+
+    document.getElementById("confirmNo").addEventListener("click", function () {
+    
+        document.getElementById("confirmModal").style.display = "none";
+    });
+</script>
+
 <style>
     .link-detail {
         text-decoration: underline;
@@ -96,7 +144,54 @@
     }
 
         .link-detail:hover {
-            color: #ff0000;
+            color: #0056b3;
             text-decoration: none;
         }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .btn-confirm {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .btn-cancel {
+        background-color: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 </style>

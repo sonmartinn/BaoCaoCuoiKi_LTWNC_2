@@ -132,5 +132,25 @@ namespace ShopProject.Areas.Shopper.Controllers
 
             return View(orders);
         }
+        public JsonResult DeleteOrder(string id)
+        {
+            try
+            {
+                var order = db.Orders.FirstOrDefault(o => o.orderID == id);
+                if (order != null)
+                {
+                    var orderDetails = db.OrderDetails.Where(od => od.orderID == id).ToList();
+                    db.OrderDetails.RemoveRange(orderDetails);
+
+                    db.Orders.Remove(order);
+                    db.SaveChanges();
+                }
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-/*--
+﻿/*--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -31,6 +31,37 @@ p, label {
 ul {
     margin: 0;
     padding: 0;
+}
+/*TÀI KHOẢN*/
+/* Container chứa các icon */
+.nav-top .cart, .nav-top .account {
+    display: flex; /* Đặt các icon vào một dòng */
+    align-items: center; /* Căn chỉnh theo chiều dọc */
+    margin-left: 2px; /* Giảm khoảng cách giữa các icon */
+}
+
+.my-account-icon {
+    margin-left: 255px;
+    margin-top: 10px;
+    font-size: 1.8em !important;
+    color: #FF8C00;
+}
+
+div.account {
+    width: 30px;
+}
+/* Các icon */
+.my-cart-icon {
+    font-size: 1.5em;
+    color: #039445;
+}
+
+/* Thông báo số lượng trong giỏ hàng */
+.my-cart-badge {
+    background-color: #e74c3c;
+    border-radius: 50%;
+    padding: 0 5px;
+    color: white;
 }
 
 /*--popup--*/

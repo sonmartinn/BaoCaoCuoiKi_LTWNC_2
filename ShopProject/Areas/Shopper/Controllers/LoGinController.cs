@@ -1,6 +1,7 @@
 ﻿using ShopProject.Areas.Shopper.Models;
 using System;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Principal;
 using System.Web.Mvc;
 
@@ -19,27 +20,35 @@ namespace ShopProject.Areas.Shopper.Controllers
 
 
         [HttpPost]
+
         public ActionResult Login(string username, string password)
         {
-
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 ViewBag.ErrorMessage = "Tên đăng nhập và mật khẩu không được để trống.";
                 return View("LoGin");
             }
 
-
+            // Kiểm tra tính hợp lệ của tài khoản
             if (IsValidUser(username.Trim(), password.Trim()))
             {
+                // Lấy thông tin người dùng từ cơ sở dữ liệu
+                var user = db.Accounts.FirstOrDefault(a => a.Username == username);
+                if (user != null)
+                {
+                    // Lưu AccountID vào Session
+                    Session["AccountID"] = user.AccountID;
 
-                return RedirectToAction("Index", "Home");
+                    // Điều hướng đến trang Home
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
-
                 ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không chính xác.";
-                return View("LoGin");
             }
+
+            return View("LoGin");
         }
 
 
@@ -50,7 +59,7 @@ namespace ShopProject.Areas.Shopper.Controllers
 
 
         [HttpPost]
-        public ActionResult Register(string username, string email, string password, string confirmPassword)
+        public ActionResult Register(string username, string email, string sdt, string password, string confirmPassword)
         {
 
             if (password != confirmPassword)
@@ -72,6 +81,7 @@ namespace ShopProject.Areas.Shopper.Controllers
             {
                 Username = username,
                 Email = email,
+                SDT = sdt,
                 Password = password,
             };
 

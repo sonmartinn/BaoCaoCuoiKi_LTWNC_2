@@ -1,0 +1,94 @@
+﻿@model List<ShopProject.Areas.Shopper.Models.Account>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Shopper/Views/Shared/_LayoutShop.cshtml";
+}
+
+
+<div class="container">
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="spec">
+            <h3>Tài Khoản</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <p class="text-info text-center" style="font-size:25px;">
+            Vui lòng đăng nhập để xem thông tin tài khoản!
+        </p>
+    }
+    else
+    {
+        var user = Model.First();
+        <div class="spec">
+            <h3>Tài khoản</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div id="center_column" class="center_column">
+                <div class="row">
+                    <div id="left_column" class="column col-sm-12 col-md-12">
+                        <form class="form-horizontal" action="/Shopper/TaiKhoan/UpdateUser" method="post">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="taikhoan_ct">
+                                    <legend>Thông tin liên hệ</legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Họ và tên *</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" required name="fullname" class="form-control input-sm field" style="width:300px;" value="@user.Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Email</label>
+                                        <div class="col-lg-8">
+                                            <input type="email" required placeholder="Không bắt buộc" class="form-control input-sm field" name="email" style="width:300px;" value="@user.Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Số điện thoại *</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" required class="form-control input-sm field" id="phone" name="phone" style="width:300px;" value="@user.SDT">
+                                        </div>
+                                    </div>
+
+                                    <legend>Địa chỉ nhận hàng</legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Địa chỉ</label>
+                                        <div class="col-lg-8">
+                                            <textarea required class="form-control input-sm field" placeholder="Vui lòng ghi địa chỉ chi tiết..." name="address" rows="5" style="height:50px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Ghi chú</label>
+                                        <div class="col-lg-8">
+                                            <textarea required class="form-control input-sm field" placeholder="Vui lòng ghi mô tả chi tiết địa chỉ ." name="note" rows="5" style="height:50px;"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-8">
+                                                <input type="submit" style="width:auto;" name="submit_step1" class="btn btn-danger btn-buynow" value="Cập nhật">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
